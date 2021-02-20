@@ -90,6 +90,7 @@ Route::get('/product-by-manufacture/{id}', 'HomeController@show_all_product_by_m
 
 // Cart Related route here
 Route::post('/add-to-cart', 'CartController@index');
+Route::get('/show-cart-details', 'CartController@show_cart');
 
 
 

@@ -10,7 +10,7 @@ use Illuminate\support\Facades\Redirect;
 use DB;
 use Session;
 session_start();
-
+use Cart;
 class CartController extends Controller
 {
     public function index(Request $request)
@@ -32,8 +32,16 @@ class CartController extends Controller
 
 
     	 
-    	echo "<pre>";
-    	print_r($product_information);
-    	// return view('pages.cart.add_to_cart');
+    	$add = Cart::add($data);
+
+        return Redirect::to('/show-cart-details');
+    }
+
+    public function show_cart()
+    {
+        $category = DB::table('tbl_category')
+                    ->where('publication_status',1)
+                    ->get();
+        return view('pages.cart.add_to_cart')->with('category', $category);
     }
 }
