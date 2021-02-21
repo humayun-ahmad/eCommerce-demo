@@ -2,7 +2,7 @@
 @section('content')
 
 <section id="cart_items">
-	<div class="container">
+	<div class="container col-sm-12">
 		<div class="breadcrumbs">
 			<ol class="breadcrumb">
 			  <li><a href="#">Home</a></li>
@@ -22,32 +22,28 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php 
-					$contents = Cart::getContent();
-						echo "<pre>";
-						print_r($contents);
-					 ?>
-					@foreach($contents as $content)
+					@foreach($all_data as $data)
 					<tr>
 						<td class="cart_product">
-							<a href=""><img src="" alt=""></a>
+
+							<a href=""><img src="#" alt=""></a>
 						</td>
 						<td class="cart_description">
-							<h4><a href="">Colorblock Scuba</a></h4>
-							<p>Web ID: 1089772</p>
+							<h4><a href="">{{ $data->name }}</a></h4>
+							
 						</td>
 						<td class="cart_price">
-							<p>$59</p>
+							<p>{{($data->price)}}</p>
 						</td>
 						<td class="cart_quantity">
 							<div class="cart_quantity_button">
 								<a class="cart_quantity_up" href=""> + </a>
-								<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+								<input class="cart_quantity_input" type="text" name="quantity" value="{{$data->quantity}}" autocomplete="off" size="2">
 								<a class="cart_quantity_down" href=""> - </a>
 							</div>
 						</td>
 						<td class="cart_total">
-							<p class="cart_total_price">$59</p>
+							<p class="cart_total_price">{{ $data->total }}</p>
 						</td>
 						<td class="cart_delete">
 							<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>

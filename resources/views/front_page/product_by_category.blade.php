@@ -15,13 +15,13 @@
                     <img src="{{ url($product->product_image) }}" style="height: 200px;" alt="" />
                     <h2>{{ $product->product_price }}</h2>
                     <p>{{ $product->product_short_description }}</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    <a href="{{ url('/view-product/'.$product->product_id) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                 </div>
                 <div class="product-overlay">
                     <div class="overlay-content">
                         <h2>{{ $product->product_short_description }}</h2>
                         <p>{{ $product->product_long_description }}</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                        <a href="{{url('/view-product/'.$product->product_id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                     </div>
                 </div>
         </div>
