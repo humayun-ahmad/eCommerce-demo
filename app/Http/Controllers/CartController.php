@@ -41,9 +41,9 @@ class CartController extends Controller
             'name' => $product_information->product_name,
             'quantity' => $quantity,
             'price' => $product_information->product_price,
-            // 'attributes' => array(
+            'attributes' => array(
             'image' => $product_information->product_image,
-            // )
+            )
         )
             
         );
@@ -56,7 +56,8 @@ class CartController extends Controller
     public function show_cart()
     {
         $data = Cart::getContent();
-
-        return view('pages.cart.add_to_cart', ['all_data'=> $data]);
+        $total = Cart::getTotal();
+        // 'total'=> $total
+        return view('pages.cart.add_to_cart', ['all_data'=> $data ]);
     }
 }
